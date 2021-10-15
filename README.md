@@ -11,6 +11,7 @@
 
 - `git clone https://github.com/jroge-uagrm/CriselitoComic-backend.git`
 - `cd CriselitoComic-backend`
+- `python -m venv venv`
 - `venv\Scripts\activate`
 - `pip install -r requirements.txt`
   
