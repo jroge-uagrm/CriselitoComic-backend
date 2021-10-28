@@ -1,4 +1,4 @@
-name: Features Docker Image CI
+name: Pull Docker Image from develop to Docker hub
 
 on:
   push:
