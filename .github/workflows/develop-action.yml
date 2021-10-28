@@ -43,4 +43,4 @@ jobs:
         app-name: 'criselitocomic-backend'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_fddb74db0c2b4716a07bf54bd1400a5b }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_2ba84ceb279744d9a9f6a23d5427e66b }}/jroge/criselitocomic-backend:${{ github.sha }}'
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_2ba84ceb279744d9a9f6a23d5427e66b }}/jroge/criselitocomic-backend:latest'
