@@ -452,3 +452,7 @@ $RECYCLE.BIN/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+## CriselitoComic
+#temp_criselitocomic_files/
+appsettings.Development.json
