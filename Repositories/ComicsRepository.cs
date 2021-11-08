@@ -13,9 +13,9 @@ namespace criselitocomic_backend.Repositories
         {
             var myAccount = new Account
             {
-                ApiKey = cloudinarySettings.Key,
-                ApiSecret = cloudinarySettings.Secret,
-                Cloud = cloudinarySettings.Name
+                ApiKey = "419917455484235",
+                ApiSecret = "xxc1Kg8jy3MXbwQrSsOPVw_Hz48",
+                Cloud = "criselitocomic-cloudinary"
             };
             _cloudinary = new(myAccount);
         }
