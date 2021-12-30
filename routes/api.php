@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DocumentController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('api')->group(function () {
@@ -13,4 +14,5 @@ Route::middleware('api')->group(function () {
         'users' => UserController::class,
     ]);
     Route::post('/login',[AuthController::class, 'login']);
+    Route::post('/upload',[DocumentController::class, 'upload']);
 });
