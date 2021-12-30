@@ -19,7 +19,7 @@ class CreateDocumentsTable extends Migration
             $table->string('description');
             $table->string('path');
             $table->unsignedBigInteger('status_id');
-            $table->foreign('status_id')->references('id')->on('status');
+            $table->foreign('status_id')->references('id')->on('statuses');
             $table->timestamps();
         });
     }
