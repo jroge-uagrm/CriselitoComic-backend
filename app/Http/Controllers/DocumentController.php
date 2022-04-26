@@ -16,7 +16,8 @@ use Carbon\Carbon;
 class DocumentController extends Controller
 {
     public function upload(Request $request){
-        $fileName= time().$request->name.".pdf";
+        $fileExtension = $request->file('document')->extension();
+        $fileName= time().$request->name.".".$fileExtension;
         $path =$request->file('document')->move(public_path("/"), $fileName);
         $documentURL=url('/'.$fileName);
         $document= new Document();
