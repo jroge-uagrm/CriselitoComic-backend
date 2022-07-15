@@ -18,11 +18,11 @@ class AuthController extends Controller
         try{
             $user=User::where('email',$request['email'])->first();
             if($user==null){
-                return response()->json('Correo No Registrado',500);
+                return response()->json(['msg'=>'Correo No Registrado'],500);
             }
             $credentials = request(['email', 'password']);        
             if (!Auth::attempt($credentials)) {
-                return response()->json('Contraseña Incorrecta', 500);
+                return response()->json(['msg'=>'Contraseña Incorrecta'], 500);
             }
             $role=Role::find($user->role_id);
             $tokenResult = $user->createToken('Personal Access Token');
@@ -38,5 +38,9 @@ class AuthController extends Controller
         }catch(Exception $e){
             return response()->json($e->getMessage(),500);
         }
+    }
+
+    public function user(Request $r){
+        return response()->json($r->user(),200);
     }
 }
