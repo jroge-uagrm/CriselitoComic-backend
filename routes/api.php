@@ -14,8 +14,11 @@ Route::middleware('api')->group(function () {
         'users' => UserController::class,
     ]);
     Route::post('/login',[AuthController::class, 'login']);
-    Route::post('/upload',[DocumentController::class, 'upload']);
+    
+    
     Route::group(['middleware' => 'auth:api'], function() {
         Route::get('user',[AuthController::class, 'user']);
+        Route::post('/upload',[DocumentController::class, 'upload']);
+        Route::post('/trans',[DocumentController::class, 'saveTranslate']);
         });
 });
