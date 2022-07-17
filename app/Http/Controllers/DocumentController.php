@@ -43,6 +43,6 @@ class DocumentController extends Controller
         $translation->path=url('/'.'storage/'.$request->name.'.txt');
         $translation->document_id=$request->document_id;
         $translation->save();
-        return response()->json('Subido',200);
+        return response()->json($translation,200);
     }
 }
