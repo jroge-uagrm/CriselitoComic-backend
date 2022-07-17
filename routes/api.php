@@ -20,5 +20,6 @@ Route::middleware('api')->group(function () {
         Route::get('user',[AuthController::class, 'user']);
         Route::post('/upload',[DocumentController::class, 'upload']);
         Route::post('/trans',[DocumentController::class, 'saveTranslate']);
+        Route::get('/documents',[DocumentController::class, 'getTranslations']);
         });
 });
