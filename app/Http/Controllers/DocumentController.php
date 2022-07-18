@@ -56,6 +56,7 @@ class DocumentController extends Controller
             ->select(
                 'documents.id',
                 'documents.name',
+                'documents.description',
                 'documents.path as originalPath',
                 'translations.path as translatePath'
             )->get(); 
