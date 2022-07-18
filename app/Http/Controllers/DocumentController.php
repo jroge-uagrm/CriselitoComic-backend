@@ -40,7 +40,7 @@ class DocumentController extends Controller
         $translation= new Translation();
         $translation->name= $request->name;
         $translation->description='Exitoso';
-        $translation->path=url('/'.'storage/'.$request->name.'.txt');
+        $translation->path=url('/'.$request->name.'.txt');
         $translation->document_id=$request->document_id;
         $translation->save();
         return response()->json($translation,200);
