@@ -45,4 +45,25 @@ class DocumentController extends Controller
         $translation->save();
         return response()->json($translation,200);
     }
+
+    public function getTranslations(Request $request){
+        try{
+            $user_id=$request->user()->id;
+            $document=Document::where('user_id',$user_id);
+            $documentInfo=DB::table('documents')
+            ->where('user_id',$user_id)
+            ->join('translations','documents.id','translations.document_id')
+            ->select(
+                'documents.id',
+                'documents.name',
+                'documents.path as originalPath',
+                'translations.path as translatePath'
+            )->get(); 
+            return response()->json(
+                $documentInfo
+            , 200);
+        }catch(Exception $e){
+            return response()->json($e->getMessage(),500);
+        }
+    }
 }
