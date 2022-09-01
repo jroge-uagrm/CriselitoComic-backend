@@ -15,7 +15,7 @@ Route::middleware('api')->group(function () {
         'users' => UserController::class,
     ]);
     Route::post('/login',[AuthController::class, 'login']);
-    Route::post('/newUser',[RegisterController::class, 'registerUser']);
+    Route::post('/newUser',[AuthController::class, 'registerUser']);
     Route::get('/subscription',[RegisterController::class, 'subscription']);
     
     
