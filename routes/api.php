@@ -3,6 +3,7 @@
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('api')->group(function () {
@@ -14,6 +15,8 @@ Route::middleware('api')->group(function () {
         'users' => UserController::class,
     ]);
     Route::post('/login',[AuthController::class, 'login']);
+    Route::post('/newUser',[RegisterController::class, 'registerUser']);
+    Route::get('/subscription',[RegisterController::class, 'subscription']);
     
     
     Route::group(['middleware' => 'auth:api'], function() {
