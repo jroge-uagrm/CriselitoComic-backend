@@ -43,4 +43,25 @@ class AuthController extends Controller
     public function user(Request $r){
         return response()->json($r->user(),200);
     }
+
+    public function registerUser(Request $request){
+        $user=User::where('email',$request->email)->first();
+        try{
+            if($user!=null){
+                return response()->json('Correo Ya Registrado',500);
+            }   
+            $user=new User();
+            $user->email=$request->email;
+            $user->name=$request->name;
+            $user->password=bcrypt($request->password);
+            $user->available=false;
+            $user->role_id=1;
+            $user->created_at=Carbon::now();
+            $user->save();
+            return response()->json('Creado Correctamente',200);
+        }catch(Exception $e){
+            return response()->json($e->getMessage(),500);
+        }
+    }
+    
 }
